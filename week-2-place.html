@@ -1,0 +1,115 @@
+<!DOCTYPE html> <!--this just tells a browser, "I am an HTML document!"-->
+
+<html> <!--this is the biggest wrapper over everything, notice the closing tag at the very bottom </html>-->
+    
+    <head> <!--the <head> is for the title, meta data, and links to things like your external CSS. Aside from the title, it's not visible to the user.-->
+
+        <title>Hamster World</title> <!--this is the page title that appears on the browser window tab-->
+
+        <!-- this is that CSS reset that eliminates all defaults and gives you a clean canvas. As you can see, the file lives in my "includes" folder. It eliminates margins and padding and things that browsers want to add to elements without you saying so -->
+        <link rel="stylesheet" href="includes/reset.css">
+
+        <!-- this is the link to my eternal CSS, which lives in my "includes" folder. Now I can add margins and padding and anything else as I see fit -->
+        <link rel="stylesheet" href="includes/styless2-copy.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Honk&display=swap" rel="stylesheet">
+
+    </head> <!--this closes out the <head>-->
+
+    <body> <!--the <body> is very important, it contains everything that lives and appears on the page, that the user can see and interact with-->
+        <h1 id="tooMany">You've created 15 hamsters!<br>~reload to reset~</h1>
+        <img id="hamster" src="images/roboHam.png"/>
+        <h1 id="mrHam">Mr. Ham</h1>
+        <h1 id="click">Click Mr. Hamster more hamsters!</h1>
+        
+        <div id="bedding"> </div>
+       
+        <div id="FoodWater">
+                <div id="foodButtons">
+                        <!-- Wheel animation-->
+                        <button onclick="feast()">Feast!</button>
+                        <button onclick="imFull()">I'm full</button>
+                </div>
+            <img id="eating" src="images/bowl.png"/>
+            <img id="waterBottle"/>
+       </div>
+
+       <div id="PlayArea">
+                <div id="wheelButtons">
+                        <!-- Wheel animation-->
+                        <button onclick="runOnWheel()">Run to the moon and back</button>
+                        <button onclick="getOffWheel()">Get me off this thing!</button>
+                </div>
+                <!-- Initially, show the static wheel -->
+                <img id="wheel" src="images/wheel.png">
+                
+            <img id="toy"/>
+            <div id="sandboxButtons">
+                <button onclick="playinSand()">Want to make sand-angels?</button>
+                <button onclick="leaveSand()">Time to get out</button>
+                </div>
+            <img id="sandbox" src="images/sandbox.png"/>
+       </div>
+
+       
+       <img id="hamsterFriend"/>
+
+       <script>
+                function feast() {
+                        // document.getElementById('eating').style.display = 'none'; // Hide the hamster
+                        document.getElementById('eating').src = 'images/hamsterEating.gif'; // Change the wheel to GIF
+                }
+
+                function imFull() {
+                        // document.getElementById('hamster').style.display = 'block'; // Show the hamster
+                        document.getElementById('eating').src = 'images/bowl.png'; // Change the wheel back to static
+                }
+
+                function runOnWheel() {
+                        document.getElementById('hamster').style.display = 'none'; // Hide the hamster
+                        document.getElementById('wheel').src = 'images/wheelGIF.gif'; // Change the wheel to GIF
+                }
+
+                function getOffWheel() {
+                        document.getElementById('hamster').style.display = 'block'; // Show the hamster
+                        document.getElementById('wheel').src = 'images/wheel.png'; // Change the wheel back to static
+                }
+
+                function playinSand() {
+                        document.getElementById('hamster').style.display = 'none'; // Hide the hamster
+                        document.getElementById('sandbox').src = 'images/sandBath.gif'; // Change the wheel to GIF
+                }
+
+                function leaveSand() {
+                        document.getElementById('hamster').style.display = 'block'; // Show the hamster
+                        document.getElementById('sandbox').src = 'images/sandbox.png'; // Change the wheel back to static
+                }
+
+                var names = ["Peanut", "Choco Pie", "Creampuff", "Hammy", "Mr. Ham", "Elia", "Xavier", "Gizmo", "Joaquin",
+                                "Hamilton", "Taco", "Alexander"];
+                var numCreated = 0;
+                //the below code says, "look at the whole document, find an element with an ID of "elonImageNormal" and execute a function on click 
+                document.getElementById("hamster").onclick = function() {  
+                        var div = document.createElement('div');
+                        div.id = 'container' + numCreated;
+                        div.innerHTML = names[Math.floor(Math.random() * names.length)];
+                        div.className = 'hamsterDuplicator ';
+                        div.style.top = Math.floor(Math.random() * 100) + 'vh';
+                        div.style.left = Math.floor(Math.random() * 100) + 'vw';
+                        document.body.appendChild(div); 
+
+                        if(numCreated > 15) {
+                                tooManyHam();
+                        }
+                        numCreated++;
+                }; //this closes out the click function
+
+                function tooManyHam () {
+                        document.getElementById('tooMany').style.display = 'block'; 
+                }
+        </script>
+    
+    </body> <!--this closes my visible body area-->
+
+</html> <!--this closes out the entire html page-->

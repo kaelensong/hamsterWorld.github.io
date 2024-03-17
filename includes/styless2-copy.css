@@ -1,0 +1,176 @@
+html, body {
+
+}
+
+#tooMany {
+        display: none;
+        position: fixed;
+        text-align: center;
+        font-size: 3rem;
+        z-index: 3;
+        color: white;
+        background-color: rgb(255, 177, 148);
+        border-width: 10px;
+        border-style: inset;
+        border-color: rgb(252, 133, 90);
+        margin:6%;
+        padding: 20px;
+        opacity: 0%;
+        animation: UCreated 7s ease;
+}
+
+.youveCreated {
+        animation-name: UCreated;
+        animation-duration: 7s;
+}
+
+@keyframes UCreated {
+        0%   {opacity: 0%;}
+        50%   {opacity: 100%;}
+        100% {opacity: 0%;}
+}
+
+#hamster {
+    position:fixed;/*fixed in relation to the browser window - this is unaffected by the scroll*/
+    top:50%;/*these get it close to centered*/
+    left:50%;
+    transform:translate(-50%,-50%);/*this offset gets the character perfectly centered*/
+    z-index:1;/*arranged towards the front compared to other elements which default to "0" z-index - higher number means closer to the front, or on top*/
+    width: 100px;
+    height:auto;/*maintains the image's porportions, based on the width amount I chose*/
+    /* background-image: url(../images/roboHam.jpeg); */
+}
+
+#mrHam {
+        position:fixed;/*fixed in relation to the browser window - this is unaffected by the scroll*/
+        top:56%;/*these get it close to centered*/
+        left:50%;
+        transform:translate(-50%,-50%);/*this offset gets the character perfectly centered*/
+        z-index:1;/*arranged towards the front compared to other elements which default to "0" z-index - higher number means closer to the front, or on top*/
+        width: 100%;
+        height:auto;
+        text-align: center;
+        font-family: "Honk";
+        font-size: 2rem;
+}
+
+#click {
+        position:fixed;/*fixed in relation to the browser window - this is unaffected by the scroll*/
+        top:59%;/*these get it close to centered*/
+        left:50%;
+        transform:translate(-50%,-50%);/*this offset gets the character perfectly centered*/
+        z-index:1;/*arranged towards the front compared to other elements which default to "0" z-index - higher number means closer to the front, or on top*/
+        width: 100%;
+        height:auto;
+        text-align: center;
+        font-size: 1rem;
+        color: black;
+}
+
+
+#hamster:hover {
+        cursor: pointer;
+}
+
+.hamsterDuplicator {
+        position:absolute;
+        text-align:center;
+        animation: hamsterSpin 1s ease;
+        background-image: url(../images/roboHam.png);
+        background-size: 100%;
+        background-repeat: no-repeat;
+        width: 100px;
+        height:100px;
+        font-family: "Honk";
+        font-size: 1.5rem;
+        padding-top:77px;
+        text-shadow: 1px 1px 2px black;
+}
+
+.hamsterAnim {
+        animation-name: hamsterSpin;
+        animation-duration: 1s;
+}
+
+@keyframes hamsterSpin {
+        0%   {transform: rotate(0deg);}
+        100% {transform: rotate(360deg)}
+}
+
+#innerHTML {
+        color:white;
+}
+
+#bedding {
+    /*defaults to position:static without us having to say - the natural position of this element is good as is*/
+    /*It also has no children being positioned within it, so position:static is fine*/
+    height:100vh;/*the height is based on the height of the viewport - viewable area of the window*/
+    width:100vw;/*the width is based on the width of the viewport - viewable area of the window*/
+    background-image: url("../images/whiteBedding.png");/*the bedding pattern*/
+    background-size: 30% auto;/*this controls the width and height of the grass tile - try changing it and see what happens*/
+    background-repeat: repeat;/*this repeats the grass tile in both the x and y directions*/
+    position: absolute;
+}
+
+#PlayArea {
+    position:relative;
+    height:70vh;/*this is a fixed size, so it won't change no matter what the device or browser window size*/
+    width:100%;/*percent also works here, cause its parent is the <body> which goes full width, so 100% of the body goes full width*/
+    top: 10%;
+    padding: 30px;
+}
+
+#wheelButtons {
+        position:absolute;
+        top: 54%;
+        left: 7%;
+        z-index: 1;
+}
+
+button {
+        margin: 7px;
+        padding: 5px;
+        background-color: rgb(213, 90, 46);
+        color:white;
+}
+
+#wheel {
+    position: absolute;
+    width: 200px;
+    left: 10%;
+    top: 20%
+}
+
+#sandbox {
+    position:absolute;
+    width: 400px;
+    left: 22%;
+    bottom: -10%;
+    /* transform: translateX(-15%);
+    transform: translateY(20%); */
+}
+
+#sandboxButtons {
+        position: absolute;
+        left: 15%;
+        bottom:-5%;
+        z-index:2;
+}
+
+.FoodWater {
+        position: relative;
+}
+
+#eating {
+        width: 350px;
+        position: absolute;
+        top: 20%;
+        right: 10%;
+}
+
+#foodButtons {
+        position: absolute;
+        z-index: 1;
+        top: 40%;
+        right: 10%;
+}
